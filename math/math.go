@@ -1,6 +1,6 @@
 package math
 
-import "github.com/kendfss/rules"
+// import "github.com/kendfss/rules"
 
 <<<<<<< HEAD
 // Add returns the sum of the given argumens
