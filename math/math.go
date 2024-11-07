@@ -1,6 +1,6 @@
 package math
 
-import "github.com/kendfss/rules"
+// import "github.com/kendfss/rules"
 
 // // Add returns the sum of the given argumens
 // func Add[T rules.Num](a, b T) T {
