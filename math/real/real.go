@@ -130,7 +130,8 @@ func Realf[I, O rules.Real](val I) O {
 
 // MapVal implements "map" from Java's Processing framework.
 // It returns the following:
-// 		min2 + (max2-min2) * ((n - min1) / (max1 - min1))
+//
+//	min2 + (max2-min2) * ((n - min1) / (max1 - min1))
 func MapVal[N rules.Number](n, min1, max1, min2, max2 N) N {
 	return min2 + (max2-min2)*((n-min1)/(max1-min1))
 }
@@ -146,7 +147,10 @@ func Abs[R rules.Real](val R) R {
 
 // Diff computes the absolute difference between a pair of real numbers
 func Diff[R rules.Real](a, b R) R {
-	return Abs(Abs(a) - Abs(b))
+	if a < b {
+		return Abs(b - a)
+	}
+	return Abs(a - b)
 }
 
 // GCD returns the Greatest Common Divisor as per the Euclidean algorithm
