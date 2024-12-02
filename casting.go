@@ -325,8 +325,9 @@ func Before[I, O any](fn func(I) O, op func()) func(I) O {
 
 func After[I, O any](fn func(I) O, op func()) func(I) O {
 	return func(i I) O {
-		defer op()
-		return fn(i)
+		out := fn(i)
+		op()
+		return out
 	}
 }
 
