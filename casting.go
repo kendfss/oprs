@@ -316,6 +316,7 @@ func Flip[L, R, T any](op func(L, R) T) func(R, L) T {
 	}
 }
 
+// Before performs some operation before computing some value
 func Before[I, O any](fn func(I) O, op func()) func(I) O {
 	return func(i I) O {
 		op()
@@ -323,6 +324,7 @@ func Before[I, O any](fn func(I) O, op func()) func(I) O {
 	}
 }
 
+// After performs some operation after computing some value
 func After[I, O any](fn func(I) O, op func()) func(I) O {
 	return func(i I) O {
 		out := fn(i)
