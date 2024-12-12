@@ -136,6 +136,13 @@ func MapVal[N rules.Number](n, min1, max1, min2, max2 N) N {
 	return min2 + (max2-min2)*((n-min1)/(max1-min1))
 }
 
+// ValMapper is a wrapper on MapVal that creates a reusable mapping
+func ValMapper[N rules.Real](min1, max1, min2, max2 N) func(N) N {
+	return func(n N) N {
+		return MapVal(n, min1, max1, min2, max2)
+	}
+}
+
 // Abs computes the absolute value of a real number
 func Abs[R rules.Real](val R) R {
 	if val >= 0 {
